@@ -11,6 +11,8 @@ $navbar-default-brand-color:        $primary-brand;
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+@import "summernote";
+
 // make all images responsive by default
 img {
   @extend                     .img-responsive;

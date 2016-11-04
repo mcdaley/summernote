@@ -7,7 +7,9 @@
                           as:     :task,
                           html:   { id: "edit-task-#{id}" } do |f|
         
-  = f.input     :description,   as:         :text,  input_html: { rows:  "5"          }, autofocus:  true
+  = f.input     :description,   as:         :summernote,  
+                                input_html: { class: "summernote", rows:  "5" }, 
+                                autofocus:  true
   = f.input     :due_text,      label:      "Due",  input_html: { class: 'datepicker' }
   = f.button    :submit,        class:      'btn btn-primary'
   = submit_tag  :cancel,        class:      'btn btn-default'

@@ -3,7 +3,7 @@
 -# ----------------------------------------------------------------------------
 %li.list-group-item{ id: "task-#{task.id}" }
   %div.task
-    %p= task.description
+    %p= task.description.html_safe
     %p= task.due.strftime('%m/%d/%y')   unless task.due.blank?
     -# %p= task.due.to_s(:rfc822)          unless task.due.blank?
     %div

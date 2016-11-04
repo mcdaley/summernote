@@ -15,4 +15,5 @@
 //= require jquery-ui
 //= require turbolinks
 //= require bootstrap-sprockets
+//= require summernote
 //= require_tree .

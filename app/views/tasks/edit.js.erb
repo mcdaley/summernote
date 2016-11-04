@@ -6,3 +6,7 @@ $("li.list-group-item").filter('#task-<%= @task.id %>')
                        .find('div.task').first()
                        .hide()
                        .after('<%= j render("form") %>');
+                       
+$("li.list-group-item").filter('#task-<%= @task.id %>')
+                       .find('[data-provider="summernote"]')
+                       .initTaskEditor();
