@@ -13,4 +13,5 @@ class User < ActiveRecord::Base
             :validatable
           
   has_many  :tasks
+  has_many  :notes
 end

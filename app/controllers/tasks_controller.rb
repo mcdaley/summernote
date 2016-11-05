@@ -17,7 +17,18 @@ class TasksController < ApplicationController
     logger.debug("[TASKS]: new, params=[#{params.inspect}]")
     
     @user   = current_user
-    @task   = @user.tasks.new
+    @task   = @user.tasks.new(task_params)
+    
+    h       = get_new_task_params
+    fred    = @user.tasks.new(task_params)
+    logger.debug("[TASKS]: get_new_task_params(), class= #{h.class}, hash= #{h.inspect}")
+    logger.debug("[TASKS]: fred= #{fred.inspect}")
+    ## @task   = @user.tasks.new(get_new_task_params)
+    
+    respond_to do |format|
+      format.html { render 'new' }
+      format.js   { render 'new' }
+    end
   end
   
   def create
@@ -25,7 +36,12 @@ class TasksController < ApplicationController
     
     if is_cancelled?
       logger.debug  "[TASKS]: user cancelled the request, do NOT create task"
-      redirect_to   tasks_path
+      
+      respond_to do |format|
+        format.html { redirect_to   tasks_path  }
+        format.js   { render        'cancel'    }
+      end
+      
       return
     end
     
@@ -117,6 +133,14 @@ class TasksController < ApplicationController
     #
     def task_params
       params.require(:task).permit(:description, :due_text, :complete, :user_id)
+    end
+    
+    ##
+    # Determine if there is a prefilled task description for automatically
+    # generated tasks
+    #
+    def get_new_task_params
+      params["task"].blank? ? '' : params["task"] 
     end
     
     ##

@@ -1,0 +1,6 @@
+//-----------------------------------------------------------------------------
+// app/views/tasks/new.js.erb
+//-----------------------------------------------------------------------------
+$('#add-task-form-placeholder').after('<%= j render("form") %>');
+$("#task-modal-body").find(".datepicker").addDatepicker();
+$("#task-modal-body").find('[data-provider="summernote"]').initTaskEditor();

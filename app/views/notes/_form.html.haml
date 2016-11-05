@@ -1,0 +1,12 @@
+-# ----------------------------------------------------------------------------
+-# app/views/notes/_form.html.haml
+-# ----------------------------------------------------------------------------
+
+= simple_form_for @note,  remote: false, 
+                          as:     :note,
+                          html:   { id: "edit-note-form" } do |f|
+        
+  = f.input     :title,         autofocus:  true
+  = f.input     :description,   input_html: { data: { provider: "summernote-notes" } }
+  = f.button    :submit,        class:      'btn btn-primary'
+  = submit_tag  :cancel,        class:      'btn btn-default'

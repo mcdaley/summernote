@@ -1,8 +1,6 @@
 //-----------------------------------------------------------------------------
-// app/views/tasks/create.js.erb
+// app/views/tasks/cancel.js.erb
 //-----------------------------------------------------------------------------
-$("ul.task-list").append('<%= j render(@task) %>');
-$("#edit-task-form").clearTaskForm();
 
 // Remove the model form, so there are not duplicates
 $("div#task-modal-body").find("#edit-task-form").remove();

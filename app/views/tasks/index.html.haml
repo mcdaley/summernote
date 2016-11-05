@@ -2,19 +2,35 @@
 -# app/views/tasks/index.html.haml
 -# ----------------------------------------------------------------------------
 %div.row
+  = render partial: 'task_modal'
+      
+%div.row
   %div.col-xs-12.col-sm-12.col-md-12.col-lg-12
-    %h1{ style: "margin-bottom:0;"} Summernote Example
+    %h1{ style: "margin-bottom:0;"} Summernote Task Editor Example
     = link_to 'summernote.org', 'http://summernote.org', target: '_blank', style: "margin-bottom:1.0em;"
     
 %div.row
-  %div.col-xs-12.col-sm-12.col-md-12.col-lg-12
-    %div.summernote
-  
-%div.row
   %div.col-xs-6.col-sm-6.col-md-6.col-lg-6
-    %h4 Add Task
-    %div#add-new-task-form
-      = render 'form'
+    %div.row
+      %div.col-xs-12.col-sm-12.col-md-12.col-lg-12
+        %h4 Add Task
+        %div#add-new-task-form
+          = render 'form'
+        %hr
+    
+      %div.col-xs-12.col-sm-12.col-md-12.col-lg-12
+        %a{ href: '#', class:   "btn btn-default btn-info btn-block",
+                       data: {  toggle: "modal", 
+                                target: "#addTaskModal", 
+                                task:   { description: build_task_description } } }
+          %span Autogenerate Task
+      
+      %div.col-xs-12.col-sm-12.col-md-12.col-lg-12
+        %h4 Create task in modal window
+        =link_to "Autogenerate Task", "#", class: "btn btn-default btn-success btn-block",
+                                           data:  { toggle:       "modal",
+                                                    description:  "hello world",
+                                                    target:       "#addTaskModal" }        
     
   %div.col-xs-6.col-sm-6.col-md-6.col-lg-6
     %h4 My Tasks

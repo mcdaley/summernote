@@ -1,0 +1,18 @@
+-# ----------------------------------------------------------------------------
+-# app/views/tasks/_task_modal.html.haml
+-# ----------------------------------------------------------------------------
+%div.row
+  %div.modal.fade#addTaskModal{ tabindex: "-1", 
+                                role:     "dialog", 
+                                aria:     {labelledby: "myModalLabel", hidden: "true"} }
+    %div.modal-dialog.modal-md
+      %div.modal-content
+        %div.modal-header
+          %button.close{ type: "button", data: {dismiss: "modal"} }
+            %span{ aria: {hidden: "true"} }   &times;
+            %span.sr-only                     Close
+        
+          %h4.modal-title#addTaskModalLabel  Add To Do
+
+        %div#task-modal-body.modal-body
+          %div#add-task-form-placeholder
